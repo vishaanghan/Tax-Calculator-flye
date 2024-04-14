@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Calculator</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Tax Calculator</h1>
+        <form id="taxForm">
+            <div class="input-group">
+                <label for="age">Enter Age Group: <span><div class="suggestion">?</div></span></label>
+                <select id="age" name="age">
+                    <option value=" "></option>
+                    <option value="<40">&lt;40</option>
+                    <option value=">=40&<60">&ge;40 &lt;60</option>
+                    <option value=">=60">&ge;60</option>
+                </select>
+                <div id="ageError" class="error" onclick="showErrorMessage(event, 'Please Select valid age group')">!</div>
+            </div>
+            <div class="input-group">
+                <label for="income">Enter Gross Annual Income: <span><div class="suggestion">?</div></span></label>
+                <input type="number" placeholder="Enter gross annual income" id="income" name="income">
+                <div id="incomeError" class="error" onmouseover="showErrorMessage(event, 'Please Enter valid income')">!</div>
+            </div>
+            
+            <div class="input-group">
+                <label for="extraIncome">Enter Extra Income: <span><div class="suggestion">?</div></span></label>
+                <input type="number" placeholder="Enter extra income fromother sources" id="extraIncome" name="extraIncome">
+                <div id="extraIncomeError" class="error" onclick="showErrorMessage(event, 'Please Enter valid extraIncome')">!</div>
+            </div>
+            <div class="input-group">
+                <label for="deductions">Enter total applicable Deductions: <span><div class="suggestion">?</div></span></label>
+                <input type="number" placeholder="Add total applicable deduction" id="deductions" name="deductions">
+                <div id="deductionsError" class="error" onclick="showErrorMessage(event, 'Please Enter valid deductions')">!</div>
+            </div>
+            <button type="submit" id="calculate">Submit</button>
+        </form>
+    </div>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Your Overall income after deduction will be </h2>
+            <p id="taxAmount"></p>
+
+        </div>
+    </div>
+    <div id="tooltip" class="tooltip"></div>
+    <script src="script.js"></script>
+</body>
+</html>
